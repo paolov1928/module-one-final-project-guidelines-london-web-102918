@@ -16,6 +16,6 @@ playlist2 = Playlist.create(:name=>"Mental Meltdown Tracks")
 playlist3 = Playlist.create(:name=>"Back Together")
 
 #PlaylistTracks
-playlist_track1 = PlaylistTrack.create(1, 1)
-playlist_track2 = PlaylistTrack.create(2, 1)
-playlist_track3 = PlaylistTrack.create(2, 1)
+playlist_track1 = PlaylistTrack.create(playlist_id: 1, track_id: 1)
+playlist_track2 = PlaylistTrack.create(playlist_id: 2, track_id: 1)
+playlist_track3 = PlaylistTrack.create(playlist_id: 2, track_id: 3)
