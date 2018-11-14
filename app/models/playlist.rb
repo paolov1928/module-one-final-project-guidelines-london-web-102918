@@ -1,6 +1,6 @@
 class Playlist < ActiveRecord::Base
   has_many :playlist_tracks
-  has_many :tracks, through: :playlist_track
+  has_many :tracks, through: :playlist_tracks
 
   def get_playlist_name(playlist_name)
     # return the name of the playlist
