@@ -1,5 +1,6 @@
 require_relative '../config/environment'
-# require_relative '../db/seeds'
+require_relative '../db/seeds'
+
 
 def greet
 puts "█░═█░══════════░░░░░████░═░█████████████
@@ -46,3 +47,5 @@ puts "█░═█░══════════░░░░░████�
 
 puts "Hello Swiftie! Before we let you into the Taykingdom, you have to prove your Swiftieness by answering the question below:\n"
 end
+
+greet
