@@ -1,5 +1,6 @@
 require_relative '../config/environment'
-new_cli =
+# require_relative '../db/seeds'
+
 def greet
 puts "█░═█░══════════░░░░░████░═░█████████████
 ██═█═───────────══░═████░███████████████
