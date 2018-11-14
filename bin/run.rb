@@ -1,5 +1,8 @@
 require_relative '../config/environment'
-# require_relative '../db/seeds'
+require_relative '../db/seeds'
+require_relative '../lib/helper_methods'
+
+entry_hash = {birthday: "December 13, 1989", birthplace: "Reading, Pennsylvania", net_worth: "$320 million", age_moved_to_nashville: 14, first_album: "Taylor Swift", second_album: "Fearless", third_album: "Speak Now", latest_album: "Reputation"}
 
 def greet
 puts "█░═█░══════════░░░░░████░═░█████████████
@@ -46,3 +49,8 @@ puts "█░═█░══════════░░░░░████�
 
 puts "Hello Swiftie! Before we let you into the Taykingdom, you have to prove your Swiftieness by answering the question below:\n"
 end
+
+greet
+question_to_get_into_app(entry_hash)
+store_users_answer
+match_on_users_answer_vs_question(answer)
