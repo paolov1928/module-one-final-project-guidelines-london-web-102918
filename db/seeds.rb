@@ -42,9 +42,5 @@ wave = "https://media.giphy.com/media/GUlWK3Ypfah7a/giphy.gif"
 eyeroll = "https://media.giphy.com/media/CfGFJw6a73XmE/giphy.gif"
 rawr = "https://media.giphy.com/media/qvWCTAG5MxOmc/giphy.gif"
 
-
-
-
 #Entry questions
-
 entry_hash = {birthday: "December 13, 1989", birthplace: "Reading, Pennsylvania", net_worth: "$320 million", age_moved_to_nashville: 14, first_album: "Taylor Swift", second_album: "Fearless", third_album: "Speak Now", latest_album: "Reputation"}

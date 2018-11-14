@@ -1,7 +1,7 @@
 class CommandLineInterface
 
   #Global variables
-$entry_hash = {birthday: "December 13, 1989", birthplace: "Reading, Pennsylvania", net_worth: "$320 million", age_moved_to_nashville: "14", first_album: "Taylor Swift", second_album: "Fearless", third_album: "Speak Now", latest_album: "Reputation"}
+$entry_hash = {birthdate: "December 13, 1989", birthplace: "Reading, Pennsylvania", net_worth: "$320 million", age_when_she_moved_to_nashville: "14", first_album_called: "Taylor Swift", second_album_called: "Fearless", third_album_called: "Speak Now", latest_album_called: "Reputation"}
 
   def greet
   puts "█░═█░══════════░░░░░████░═░█████████████
@@ -99,8 +99,71 @@ end
 #instantiate new instance of PlaylistTrack
 #show updated playlist
 
-def add_song_to_playlist
+#iterate over playlists and puts them
+def paylist_iteration
+  puts "Please, select the number of the Taylist you want to add a track to: "
+  i = 0
+  Playlist.all.map do |p|
+    puts "#{i + 1}. #{p.name}\n"
+    i = i + 1
+   end
+end
 
+#ask user for selected track
+#store This
+def store_playlist_choice
+  gets.chomp.to_s
+end
+
+def track_iteration
+  puts "Please, select the number of the track you would like to add to the playlist: "
+  i = 0
+  Track.all.map do |t|
+    puts "#{i + 1}. #{t.title}\n"
+    i = i + 1
+end
+end
+
+#ask user for selected track
+#store
+def store_track_choice
+  gets.chomp.to_s
+end
+
+#instantiate new instance of PlaylistTrack
+#show updated playlist
+def match_track_to_playlist(playlist_choice, track_choice)
+  PlaylistTrack.create(playlist_choice, track_choice)
+end
+
+# select a playlist by name
+def paylist_iteration
+  puts "Please, select the number of the Taylist you want to add a track to: "
+  i = 0
+  Playlist.all.map do |p|
+    puts "#{i + 1}. #{p.name}\n"
+    i = i + 1
+   end
+end
+
+def store_playlist_choice_second
+  gets.chomp.to_s
+end
+
+def paylist_iteration_by_name
+  puts "Please, select the name of the Taylist you want to view: "
+  i = 0
+  Playlist.all.map do |p|
+    puts "#{i + 1}. #{p.name}\n"
+    i = i + 1
+   end
+end
+
+def find_playlist(answer)
+Playlist.all.select do |p|
+  p.name ==  answer
+  puts "#{p.tracks}"
+  end
 end
 
 def run
@@ -113,9 +176,19 @@ def run
   match_on_users_answer_vs_question(answer_first, question)
 
   # User options
-  entry_screen_user_story_options
-  answer_second = store_users_answer_second
+  # entry_screen_user_story_options
+  # answer_second = store_users_answer_second
+
+  paylist_iteration
+  playlist_choice = store_playlist_choice
+  track_iteration
+  track_choice = store_track_choice
+  # match_track_to_playlist
+  paylist_iteration_by_name
+  playlist_choice_second = store_playlist_choice_second
+  find_playlist(playlist_choice_second)
 
 end
+
 
 end
