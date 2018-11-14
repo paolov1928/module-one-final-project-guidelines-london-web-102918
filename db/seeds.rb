@@ -10,10 +10,6 @@ babe = Track.create(:title=>"Babe")
 back_to_december = Track.create(:title=>"Back to December")
 bad_blood = Track.create(:title=>"Bad Blood")
 
-#Playlists
-playlist1 = Playlist.create(:name=>"Exes' Songs")
-playlist2 = Playlist.create(:name=>"Mental Meltdown Tracks")
-playlist3 = Playlist.create(:name=>"Back Together")
 
 #PlaylistTracks
 playlist_track1 = PlaylistTrack.create(playlist_id: 1, track_id: 1)
@@ -33,3 +29,18 @@ rawr = "https://media.giphy.com/media/qvWCTAG5MxOmc/giphy.gif"
 #Entry questions
 
 {birthday: "December 13, 1989", birthplace: "Reading, Pennsylvania", net_worth: "$320 million", }
+
+
+
+#Playlists
+playlist1 = Playlist.create(:name=>"Taylurking")
+playlist2 = Playlist.create(:name=>"Taylooking")
+playlist3 = Playlist.create(:name=>"Tayliking")
+playlist4 = Playlist.create(:name=>"Taylosing")
+playlist5 = Playlist.create(:name=>"Taylistening")
+playlist6 = Playlist.create(:name=>"Taylording")
+playlist7 = Playlist.create(:name=>"Tayloving")
+playlist8 = Playlist.create(:name=>"Taylucky")
+playlist9 = Playlist.create(:name=>"Tayleading")
+playlist10 = Playlist.create(:name=>"Taylate")
+playlist11 = Playlist.create(:name=>"Taylationship")
