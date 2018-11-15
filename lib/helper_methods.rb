@@ -186,9 +186,15 @@ end
 #Can you put booleans in the where lookup????!?!?
 #Can make the "Bad Blood" be an input for any song
 
+def find_track_id_for_ex
+# ex_track_id =
+Track.where(title: "Bad Blood").ids.first
+end
 
-ex_track_id = Track.where(title: "Bad Blood").ids.first
-PlaylistTrack.where(track_id: ex_track_id).delete_all
+def delete_all_playlist_tracks_with_ex_mentioned(ex_track_id)
+  PlaylistTrack.where(track_id: ex_track_id).delete_all
+end
+# PlaylistTrack.where(track_id: ex_track_id).delete_all
 
 
 # ---------------------------------------------------
@@ -267,7 +273,7 @@ def run
   track_iteration
   track_choice = store_track_choice
   new_playlisttrack = match_track_to_playlist(playlist_choice, track_choice)
-  binding.pry
+
   show_playlist_tracks_for_user_choice(new_playlisttrack)
 
   #paylist_iteration_by_name
