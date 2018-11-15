@@ -38,7 +38,7 @@ end
 # => Selection Screen
 # ---------------------------------------------------
 
-def entry_screen_user_story_options
+def selection_screen_user_story_options
   puts "1. Add a song to your Taylist!\n2. You are such a Swiftie that you want to delete playlisttracks related to her exes.\n3. Generate a list of all of the Taylists. \n4. Show your Tayswag by attaching the cutest Swiftimage to your Taylist.\nPlease, enter your selection as a number from 1 to 4 below:\n"
 end
 
@@ -119,40 +119,29 @@ end
 # => User Story 3 - Read
 # ---------------------------------------------------
 
-# select a playlist by name
-def paylist_iteration
-  puts "Please, select the number of the Taylist you want to add a track to: "
-  i = 0
-  Playlist.all.map do |p|
-    puts "#{i + 1}. #{p.name}\n"
-    i = i + 1
-   end
+def paylist_iteration_by_name
+ puts "Please, select the name of the Taylist you want to view: "
+ i = 0
+ Playlist.all.map do |p|
+   puts "#{i + 1}. #{p.name}\n"
+   i = i + 1
+  end
 end
 
 def store_playlist_choice_second
-  gets.chomp.to_i
-end
-
-def paylist_iteration_by_name
-  puts "Please, select the name of the Taylist you want to view: "
-  i = 0
-  Playlist.all.map do |p|
-    puts "#{i + 1}. #{p.name}\n"
-    i = i + 1
-   end
+ gets.chomp.to_i
 end
 
 # new_playlisttrack.playlist.tracks.map.with_index{|t,i|puts "#{i+1}.#{t.title}"}
 
-# def find_playlist(answer)
-#   #PlaylistTrack.create(playlist_id: Playlist.all[playlist_choice - 1].id, track_id: Track.all[track_choice - 1].id)
-#   plt1 = Playlist.find_by(name: answer)
-#   plt1.map
-#   # playlist_for_answer = Playlist.all.select {|p|  p.name ==  answer}
-#   # playlist_for_answer.map { |p| p.tracks }
-#   # new_playlisttrack.playlist.tracks.map.with_index{|t,i|puts "#{i+1}.#{t.title}"}
-# end
-#
+def find_playlist(answer)
+ #PlaylistTrack.create(playlist_id: Playlist.all[playlist_choice - 1].id, track_id: Track.all[track_choice - 1].id)
+ plt1 = Playlist.all[answer - 1]
+ plt1.tracks.map.with_index{|track, i| puts "#{i+1}.#{track.title}"}
+ # playlist_for_answer = Playlist.all.select {|p|  p.name ==  answer}
+ # playlist_for_answer.map { |p| p.tracks }
+ # new_playlisttrack.playlist.tracks.map.with_index{|t,i|puts "#{i+1}.#{t.title}"}
+end
 
 # ---------------------------------------------------
 # => Looping + Input Validation
@@ -169,7 +158,16 @@ end
 # end
 
 #Array is always dependent on Playlist.all.length or Track.all.length or [1 to 4]
-#
+
+# array_of_playlist_options = (1..Playlist.all.length).to_a
+# array_of_track_options = (1..Track.all.length).to_a
+# array_of_selection_screen_options = (1..4).to_a
+
+#if array.include?(answer)
+#   "proceed to next method"
+# else
+#   "loop back to question"
+# end
 
 
 # ---------------------------------------------------
@@ -194,7 +192,7 @@ end
 def delete_all_playlist_tracks_with_ex_mentioned(ex_track_id)
   PlaylistTrack.where(track_id: ex_track_id).delete_all
 end
-# PlaylistTrack.where(track_id: ex_track_id).delete_all
+
 
 
 # ---------------------------------------------------
@@ -206,9 +204,11 @@ end
 #   #a new migration, and then in the change method,
 #   #we make the change.
 #   def change
-#     add_column :playlists, :img_ascii, :blob
+#     add_column :playlists, :img_ascii, :string
 #   end
 # end
+
+
 
 
 
@@ -260,25 +260,34 @@ def run
   greet(ascii_taylors_face)
 
   # Question for Swifties
+  #-----------------------------------------
   question = question_to_get_into_app($entry_hash)
   answer_first = store_users_answer_first
   match_on_users_answer_vs_question(answer_first, question)
 
   # User options
-  # entry_screen_user_story_options
+  # selection_screen_user_story_options
   # answer_second = store_users_answer_second
+  puts "-----------------------------------------"
 
+  #User Story 1 - Create
   playlist_iteration
   playlist_choice = store_playlist_choice
+  puts "-----------------------------------------"
   track_iteration
   track_choice = store_track_choice
   new_playlisttrack = match_track_to_playlist(playlist_choice, track_choice)
 
   show_playlist_tracks_for_user_choice(new_playlisttrack)
 
-  #paylist_iteration_by_name
-  # playlist_choice_second = store_playlist_choice_second
-  # find_playlist(playlist_choice_second)
+  puts "-----------------------------------------"
+
+  #User Story 3 - Read
+  paylist_iteration_by_name
+  playlist_choice_second = store_playlist_choice_second
+  find_playlist(playlist_choice_second)
+
+  puts "-----------------------------------------"
 
 end
 
