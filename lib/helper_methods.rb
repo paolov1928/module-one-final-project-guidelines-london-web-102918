@@ -166,6 +166,48 @@ Playlist.all.select do |p|
   end
 end
 
+
+
+# ---------------------------------------
+# Paolo adding in some code to work on later
+#
+#How to validate that each input is valid
+# array = (1..4).to_a
+# if array.include?(answer)
+#   "proceed to next method"
+# else
+#   "loop back to question"
+# end
+
+#Array is always dependent on Playlist.all.length or Track.all.length or [1 to 4]
+#
+#
+# #This is to do user journey 2
+
+# PlaylistTrack.delete_all(track_id: 'contains something about ex')
+#
+# User.where('age > 69').delete_all
+# #could you chain in a self in there?
+#
+# #This is to do user journey 4
+#
+# class AddImgsToPlaylists < ActiveRecord::Migration
+#   #to make an additive change to a schema we create
+#   #a new migration, and then in the change method,
+#   #we make the change.
+#   def change
+#     add_column :playlists, :img_ascii, :blob
+#   end
+# end
+
+
+
+
+
+
+
+
+
 def run
   # greeting
   greet
