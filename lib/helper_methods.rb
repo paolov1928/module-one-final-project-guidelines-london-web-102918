@@ -42,21 +42,20 @@ def selection_screen_user_story_options
   puts "1. Add a song to your Taylist!\n2. You are such a Swiftie that you want to delete playlisttracks related to her exes.\n3. Generate a list of all of the Taylists. \n4. Show your Tayswag by attaching the cutest Swiftimage to your Taylist.\nPlease, enter your selection as a number from 1 to 4 below:\n"
 end
 
-def store_users_answer_second
-  gets.chomp.to_s
+def store_users_answer_to_selection_question
+  gets.chomp.to_i
 end
 
-def match_second_answer_vs_question(answer_second, question_sampled_second)
-  if "1" == answer_second
-    #METHODS!
-  elsif "2" == answer_second
-    #METHODS!
-  elsif "3" == answer_second
-    #METHODS!
-  elsif "4" == answer_second
-    #METHODS!
-  else
-    "Please, select again!"
+def selection_screen_validation(answer)
+  array_of_selection_screen_options = (1..4).to_a
+  array_of_selection_screen_options.include?(answer) ? true : false
+end
+
+def checking_and_looping_on_selection(answer_second)
+  if !selection_screen_validation(answer_second) == true
+  selection_screen_user_story_options
+  answer_second = store_users_answer_to_selection_question
+  checking_and_looping_on_selection(answer_second)
   end
 end
 
@@ -208,6 +207,10 @@ end
 #   end
 # end
 
+#store asciis in an array
+#Gifs saved as ascii_playlistname
+#Playlist.find_by(name: "Taylistening").update(name: "Taylisteninggg")
+#do the above on the img
 
 
 
@@ -264,10 +267,12 @@ def run
   question = question_to_get_into_app($entry_hash)
   answer_first = store_users_answer_first
   match_on_users_answer_vs_question(answer_first, question)
+  puts "-----------------------------------------"
 
   # User options
-  # selection_screen_user_story_options
-  # answer_second = store_users_answer_second
+  selection_screen_user_story_options
+  answer_second = store_users_answer_to_selection_question
+  checking_and_looping_on_selection(answer_second)
   puts "-----------------------------------------"
 
   #User Story 1 - Create
