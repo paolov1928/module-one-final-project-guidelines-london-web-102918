@@ -3,6 +3,10 @@ class CommandLineInterface
   #Global variables
 $entry_hash = {birthdate: "December 13, 1989", birthplace: "Reading, Pennsylvania", net_worth: "$320 million", age_when_she_moved_to_nashville: "14", first_album_called: "Taylor Swift", second_album_called: "Fearless", third_album_called: "Speak Now", latest_album_called: "Reputation"}
 
+# ---------------------------------------------------
+# => Entry screen
+# ---------------------------------------------------
+
   def greet(ascii_taylors_face)
 
   puts ascii_taylors_face.split('').map{|c| c == "\n" ? c : c + c}.join('')
@@ -30,6 +34,10 @@ def match_on_users_answer_vs_question(answer, question_sampled)
   end
 end
 
+# ---------------------------------------------------
+# => Selection Screen
+# ---------------------------------------------------
+
 def entry_screen_user_story_options
   puts "1. Add a song to your Taylist!\n2. You are such a Swiftie that you want to delete playlisttracks related to her exes.\n3. Generate a list of all of the Taylists. \n4. Show your Tayswag by attaching the cutest Swiftimage to your Taylist.\nPlease, enter your selection as a number from 1 to 4 below:\n"
 end
@@ -51,6 +59,11 @@ def match_second_answer_vs_question(answer_second, question_sampled_second)
     "Please, select again!"
   end
 end
+
+
+# ---------------------------------------------------
+# => User Story 1 - Create
+# ---------------------------------------------------
 
 #iterate over playlists and puts them
 #ask user for selected playlist
@@ -102,6 +115,10 @@ def show_playlist_tracks_for_user_choice(new_playlisttrack)
 new_playlisttrack.playlist.tracks.map.with_index{|t,i|puts "#{i+1}.#{t.title}"}
 end
 
+# ---------------------------------------------------
+# => User Story 3 - Read
+# ---------------------------------------------------
+
 # select a playlist by name
 def paylist_iteration
   puts "Please, select the number of the Taylist you want to add a track to: "
@@ -137,10 +154,10 @@ end
 # end
 #
 
+# ---------------------------------------------------
+# => Looping + Input Validation
+# ---------------------------------------------------
 
-
-
-# ---------------------------------------
 # Paolo adding in some code to work on later
 #
 #How to validate that each input is valid
@@ -153,16 +170,31 @@ end
 
 #Array is always dependent on Playlist.all.length or Track.all.length or [1 to 4]
 #
-#
+
+
+# ---------------------------------------------------
+# => User Story 2 - Delete
+# ---------------------------------------------------
+
 # #This is to do user journey 2
 
 # PlaylistTrack.delete_all(track_id: 'contains something about ex')
 #
 # User.where('age > 69').delete_all
 # #could you chain in a self in there?
-#
-# #This is to do user journey 4
-#
+
+#Can you put booleans in the where lookup????!?!?
+#Can make the "Bad Blood" be an input for any song
+
+
+ex_track_id = Track.where(title: "Bad Blood").ids.first
+PlaylistTrack.where(track_id: ex_track_id).delete_all
+
+
+# ---------------------------------------------------
+# => User Story 4 - Update
+# ---------------------------------------------------
+
 # class AddImgsToPlaylists < ActiveRecord::Migration
 #   #to make an additive change to a schema we create
 #   #a new migration, and then in the change method,
@@ -171,12 +203,6 @@ end
 #     add_column :playlists, :img_ascii, :blob
 #   end
 # end
-
-
-
-
-
-
 
 
 
@@ -241,9 +267,10 @@ def run
   track_iteration
   track_choice = store_track_choice
   new_playlisttrack = match_track_to_playlist(playlist_choice, track_choice)
+  binding.pry
   show_playlist_tracks_for_user_choice(new_playlisttrack)
 
-  paylist_iteration_by_name
+  #paylist_iteration_by_name
   # playlist_choice_second = store_playlist_choice_second
   # find_playlist(playlist_choice_second)
 
