@@ -3,48 +3,9 @@ class CommandLineInterface
   #Global variables
 $entry_hash = {birthdate: "December 13, 1989", birthplace: "Reading, Pennsylvania", net_worth: "$320 million", age_when_she_moved_to_nashville: "14", first_album_called: "Taylor Swift", second_album_called: "Fearless", third_album_called: "Speak Now", latest_album_called: "Reputation"}
 
-  def greet
-  puts "█░═█░══════════░░░░░████░═░█████████████
-  ██═█═───────────══░═████░███████████████
-  ████═══════════─░░██░███████████████████
-  ███░══════════─═─░░██═░█████████████████
-  ███════════════──═░░░█░░████████████████
-  ███═─═══════───═──═█░░█░═░██████████████
-  ███══════─═────────═█░═░░░░░████████████
-  ███═─═══─═─═─═──────═░░░═░░░░█░███░░░░══
-  ███══───═─────────────░██░════════░░░░██
-  ███═──═░░░═────────────═░██░░░░░░░░░░███
-  ███══─════░█░═──────────══████████████░═
-  ███═══─═─══████░───═─═───═██████████████
-  ██░─═─═░█████████░═══─══░███████████████
-  ██═──══████████████═───═░████░██████████
-  ██═───═███░═██═─█░█░────░═─█░═░██████░░░
-  ██░──═──═█░═░═─═───░───══────════█░░═══░
-  ███───═──═░░════───══──══────══════───═░
-  ███──═══─═════─────═───═══─────────────═
-  ██░───═───────────══────═══─────────═─══
-  █──═──══─────────═══────══─────────════░
-  █═─═──═══────────═══────═══───────═════░
-  ██─░═──════──────═══─────═══─────══════░
-  ██═██──════──────══──────══─────══════░░
-  ██─░█──═════─────═───────══──═─══════░░░
-  ██░░█═─══════────═░░═──═░░░───════════░░
-  █████░─═══════─═──███░░████────═══════░░
-  ██████──═══════───░███████═───═─══════░░
-  ██████──════════─────═░──────═─══════░░░
-  ██████░─═══════───────────────══════░═░░
-  ███████─═══════────░██─███░═─════════░░█
-  █░█████═─════════█████████████░═══════░█
-  ░═░█████═══════░█████████████──════░═░██
-  ══░═█████══════──████░█░══██░──═══░═░░██
-  ════██══██═░════─███░░██████─════░░░░███
-  █══███─═███░░═════█████████═─═════░░████
-  █═░░█──░███░█░════─██████░───════░██████
-  ░░░══─═█░██░██░─══──────────═─══░███████
-  ██─░─════██░███═─═───────────══░████████
-  █═─█═══─░░░░████░══─────────══██████████
-  ░══█════█░═░░█████░░═══════░░███████████
-  "
+  def greet(ascii_taylors_face)
+
+  puts ascii_taylors_face.split('').map{|c| c == "\n" ? c : c + c}.join('')
 
   puts "Hello Swiftie! Before we let you into the Taykingdom, you have to prove your Swiftieness by answering the question below:\n"
   end
@@ -61,6 +22,7 @@ def store_users_answer_first
 end
 
 def match_on_users_answer_vs_question(answer, question_sampled)
+  return true
   if $entry_hash[question_sampled] == answer
     puts "Welcome to the Taykingdom, you have proved your Swiftiness!!"
   else
@@ -100,7 +62,7 @@ end
 #show updated playlist
 
 #iterate over playlists and puts them
-def paylist_iteration
+def playlist_iteration
   puts "Please, select the number of the Taylist you want to add a track to: "
   i = 0
   Playlist.all.map do |p|
@@ -112,7 +74,7 @@ end
 #ask user for selected track
 #store This
 def store_playlist_choice
-  gets.chomp.to_s
+  gets.chomp.to_i
 end
 
 def track_iteration
@@ -127,13 +89,17 @@ end
 #ask user for selected track
 #store
 def store_track_choice
-  gets.chomp.to_s
+  gets.chomp.to_i
 end
 
 #instantiate new instance of PlaylistTrack
 #show updated playlist
 def match_track_to_playlist(playlist_choice, track_choice)
-  PlaylistTrack.create(playlist_choice, track_choice)
+  PlaylistTrack.create(playlist_id: Playlist.all[playlist_choice - 1].id, track_id: Track.all[track_choice - 1].id)
+end
+
+def show_playlist_tracks_for_user_choice(new_playlisttrack)
+new_playlisttrack.playlist.tracks.map.with_index{|t,i|puts "#{i+1}.#{t.title}"}
 end
 
 # select a playlist by name
@@ -147,7 +113,7 @@ def paylist_iteration
 end
 
 def store_playlist_choice_second
-  gets.chomp.to_s
+  gets.chomp.to_i
 end
 
 def paylist_iteration_by_name
@@ -159,12 +125,18 @@ def paylist_iteration_by_name
    end
 end
 
-def find_playlist(answer)
-Playlist.all.select do |p|
-  p.name ==  answer
-  puts "#{p.tracks}"
-  end
-end
+# new_playlisttrack.playlist.tracks.map.with_index{|t,i|puts "#{i+1}.#{t.title}"}
+
+# def find_playlist(answer)
+#   #PlaylistTrack.create(playlist_id: Playlist.all[playlist_choice - 1].id, track_id: Track.all[track_choice - 1].id)
+#   plt1 = Playlist.find_by(name: answer)
+#   plt1.map
+#   # playlist_for_answer = Playlist.all.select {|p|  p.name ==  answer}
+#   # playlist_for_answer.map { |p| p.tracks }
+#   # new_playlisttrack.playlist.tracks.map.with_index{|t,i|puts "#{i+1}.#{t.title}"}
+# end
+#
+
 
 
 
@@ -210,7 +182,50 @@ end
 
 def run
   # greeting
-  greet
+  ascii_taylors_face =
+  "
+  █░═█░══════════░░░░░████░═░█████████████
+  ██═█═───────────══░═████░███████████████
+  ████═══════════─░░██░███████████████████
+  ███░══════════─═─░░██═░█████████████████
+  ███════════════──═░░░█░░████████████████
+  ███═─═══════───═──═█░░█░═░██████████████
+  ███══════─═────────═█░═░░░░░████████████
+  ███═─═══─═─═─═──────═░░░═░░░░█░███░░░░══
+  ███══───═─────────────░██░════════░░░░██
+  ███═──═░░░═────────────═░██░░░░░░░░░░███
+  ███══─════░█░═──────────══████████████░═
+  ███═══─═─══████░───═─═───═██████████████
+  ██░─═─═░█████████░═══─══░███████████████
+  ██═──══████████████═───═░████░██████████
+  ██═───═███░═██═─█░█░────░═─█░═░██████░░░
+  ██░──═──═█░═░═─═───░───══────════█░░═══░
+  ███───═──═░░════───══──══────══════───═░
+  ███──═══─═════─────═───═══─────────────═
+  ██░───═───────────══────═══─────────═─══
+  █──═──══─────────═══────══─────────════░
+  █═─═──═══────────═══────═══───────═════░
+  ██─░═──════──────═══─────═══─────══════░
+  ██═██──════──────══──────══─────══════░░
+  ██─░█──═════─────═───────══──═─══════░░░
+  ██░░█═─══════────═░░═──═░░░───════════░░
+  █████░─═══════─═──███░░████────═══════░░
+  ██████──═══════───░███████═───═─══════░░
+  ██████──════════─────═░──────═─══════░░░
+  ██████░─═══════───────────────══════░═░░
+  ███████─═══════────░██─███░═─════════░░█
+  █░█████═─════════█████████████░═══════░█
+  ░═░█████═══════░█████████████──════░═░██
+  ══░═█████══════──████░█░══██░──═══░═░░██
+  ════██══██═░════─███░░██████─════░░░░███
+  █══███─═███░░═════█████████═─═════░░████
+  █═░░█──░███░█░════─██████░───════░██████
+  ░░░══─═█░██░██░─══──────────═─══░███████
+  ██─░─════██░███═─═───────────══░████████
+  █═─█═══─░░░░████░══─────────══██████████
+  ░══█════█░═░░█████░░═══════░░███████████
+  "
+  greet(ascii_taylors_face)
 
   # Question for Swifties
   question = question_to_get_into_app($entry_hash)
@@ -221,14 +236,16 @@ def run
   # entry_screen_user_story_options
   # answer_second = store_users_answer_second
 
-  paylist_iteration
+  playlist_iteration
   playlist_choice = store_playlist_choice
   track_iteration
   track_choice = store_track_choice
-  # match_track_to_playlist
+  new_playlisttrack = match_track_to_playlist(playlist_choice, track_choice)
+  show_playlist_tracks_for_user_choice(new_playlisttrack)
+
   paylist_iteration_by_name
-  playlist_choice_second = store_playlist_choice_second
-  find_playlist(playlist_choice_second)
+  # playlist_choice_second = store_playlist_choice_second
+  # find_playlist(playlist_choice_second)
 
 end
 
