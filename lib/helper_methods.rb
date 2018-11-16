@@ -517,6 +517,50 @@ lllllc'  .. .....      ..;OWMMMMMMN0xxkKNWWWNXx'..      ..     .;oxO00O00KKKKKK0
 
 "
 
+@@ascii_taylors_face =
+"
+█░═█░══════════░░░░░████░═░█████████████
+██═█═───────────══░═████░███████████████
+████═══════════─░░██░███████████████████
+███░══════════─═─░░██═░█████████████████
+███════════════──═░░░█░░████████████████
+███═─═══════───═──═█░░█░═░██████████████
+███══════─═────────═█░═░░░░░████████████
+███═─═══─═─═─═──────═░░░═░░░░█░███░░░░══
+███══───═─────────────░██░════════░░░░██
+███═──═░░░═────────────═░██░░░░░░░░░░███
+███══─════░█░═──────────══████████████░═
+███═══─═─══████░───═─═───═██████████████
+██░─═─═░█████████░═══─══░███████████████
+██═──══████████████═───═░████░██████████
+██═───═███░═██═─█░█░────░═─█░═░██████░░░
+██░──═──═█░═░═─═───░───══────════█░░═══░
+███───═──═░░════───══──══────══════───═░
+███──═══─═════─────═───═══─────────────═
+██░───═───────────══────═══─────────═─══
+█──═──══─────────═══────══─────────════░
+█═─═──═══────────═══────═══───────═════░
+██─░═──════──────═══─────═══─────══════░
+██═██──════──────══──────══─────══════░░
+██─░█──═════─────═───────══──═─══════░░░
+██░░█═─══════────═░░═──═░░░───════════░░
+█████░─═══════─═──███░░████────═══════░░
+██████──═══════───░███████═───═─══════░░
+██████──════════─────═░──────═─══════░░░
+██████░─═══════───────────────══════░═░░
+███████─═══════────░██─███░═─════════░░█
+█░█████═─════════█████████████░═══════░█
+░═░█████═══════░█████████████──════░═░██
+══░═█████══════──████░█░══██░──═══░═░░██
+════██══██═░════─███░░██████─════░░░░███
+█══███─═███░░═════█████████═─═════░░████
+█═░░█──░███░█░════─██████░───════░██████
+░░░══─═█░██░██░─══──────────═─══░███████
+██─░─════██░███═─═───────────══░████████
+█═─█═══─░░░░████░══─────────══██████████
+░══█════█░═░░█████░░═══════░░███████████
+"
+
 $taylor_swift_ascii_images_array = [$ascii_taylurking, $ascii_taylooking, $ascii_tayliking, $ascii_taylosing, $ascii_taylistening, $ascii_taylording, $scii_tayloving, $ascii_taylucky, $ascii_tayleading, $ascii_taylate, $ascii_taylationship]
 
 
@@ -525,9 +569,9 @@ $taylor_swift_ascii_images_array = [$ascii_taylurking, $ascii_taylooking, $ascii
 # => Entry screen
 # ---------------------------------------------------
 
-  def greet(ascii_taylors_face)
+  def greet
 
-  puts ascii_taylors_face.split('').map{|c| c == "\n" ? c : c + c}.join('')
+  puts @@ascii_taylors_face.split('').map{|c| c == "\n" ? c : c + c}.join('')
 
   puts "Hello Swiftie! Before we let you into the Taykingdom, you have to prove your Swiftieness by answering the question below:\n"
   end
@@ -557,25 +601,13 @@ end
 # ---------------------------------------------------
 
 def selection_screen_user_story_options
-  puts "1. Add a song to your Taylist!\n2. You are such a Swiftie that you want to delete playlisttracks related to her exes.\n3. Generate a list of all of the Taylists. \n4. Show your Tayswag by attaching the cutest Swiftimage to your Taylist. 📸\n5. Play a randomly shuffled song by Tay. You know that all of her songs are good! 🎶\nPlease, enter your selection as a number from 1 to 4 below:\n"
+  puts "1. Add a song to your Taylist!\n2. You are such a Swiftie that you want to delete playlisttracks related to Taylor's ex.\n3. View the tracks in your favourite Taylist. \n4. Show your Tayswag by attaching the cutest Swiftimage to your Taylist. 📸🤳🏻📷\n5. Play a randomly shuffled song by Tay. You know that all of her songs are good! 🎶🎹🎷\n\nPlease, enter your selection as a number from 1 to 5 below:\n"
 end
 
 def store_users_answer_to_selection_question
   gets.chomp.to_i
 end
 
-def selection_screen_validation(answer)
-  array_of_selection_screen_options = (1..4).to_a
-  array_of_selection_screen_options.include?(answer) ? true : false
-end
-
-def checking_and_looping_on_selection(answer_second)
-  if !selection_screen_validation(answer_second) == true
-  selection_screen_user_story_options
-  answer_second = store_users_answer_to_selection_question
-  checking_and_looping_on_selection(answer_second)
-  end
-end
 
 
 # ---------------------------------------------------
@@ -716,30 +748,6 @@ def display_updated_ascii(selected_playlist_for_ascii_image_insertion)
   puts "#{$taylor_swift_ascii_images_array[selected_playlist_for_ascii_image_insertion -1]}"
 end
 
-# ---------------------------------------------------
- # => Validation Methods
- # ---------------------------------------------------
-
- def entry_question_validation(answer_first)
-   if !$entry_hash.values.include?(answer_first)
-       # loop back to the start (call entry_question)
-     end
-   end
-
- def track_question_validation(track_choice)
-   track_options_array = (1..6).to_a
-   if !track_options_array.include?(track_choice)
-       # loop back to the start (call the start of whatever part we are in)
-     end
-   end
-
- def playlist_question_validation(playlist_choice, loop_back)
-     playlist_options_array = (1..11).to_a
-     if !playlist_options_array.include?(playlist_choice)
-         loop_back# loop back to the start (call the start of whatever part we are in)
-       end
-     end
-
 
 #----------------------------------------------
 # => User Story Methods
@@ -752,13 +760,18 @@ end
 def user_story_one_create
   playlist_iteration
   playlist_choice = store_playlist_choice
-  # playlist_question_validation(playlist_choice, user_story_one_create)
-  puts "-----------------------------------------"
-  track_iteration
-  track_choice = store_track_choice
-  new_playlisttrack = match_track_to_playlist(playlist_choice, track_choice)
-  show_playlist_tracks_for_user_choice(new_playlisttrack)
-  puts "-----------------------------------------"
+    if !(1..Playlist.all.length).to_a.include?(playlist_choice)
+      user_story_one_create
+    else
+      puts "-------------------------------------------"
+      track_iteration
+      track_choice = store_track_choice
+      new_playlisttrack = match_track_to_playlist(playlist_choice, track_choice)
+      show_playlist_tracks_for_user_choice(new_playlisttrack)
+      puts "-----------------------------------------"
+    end
+  # puts "-----------------------------------------"
+
 end
 
 #----------------------------------------------
@@ -769,10 +782,14 @@ def user_story_two_delete
   destroy_input_intro
   show_tracks_for_deletion
   track_for_deletion = store_track_for_deletion
-  ex_track_for_deletion_id = find_track_id_for_ex(track_for_deletion)
-  delete_all_playlist_tracks_with_ex_mentioned(ex_track_for_deletion_id)
-  destroy_end_narrative
-  puts "-----------------------------------------"
+  if !(1..Track.all.length).to_a.include?(track_for_deletion)
+     user_story_two_delete
+  else
+     ex_track_for_deletion_id = find_track_id_for_ex(track_for_deletion)
+     delete_all_playlist_tracks_with_ex_mentioned(ex_track_for_deletion_id)
+     destroy_end_narrative
+   puts "-------------------------------------------"
+  end
 end
 
 #----------------------------------------------
@@ -782,9 +799,13 @@ end
 def user_story_three_read
   playlist_iteration_by_name
   playlist_choice_second = store_playlist_choice_second
-  puts "You have selected a great Taylist! Taytay would be proud with you. Below are the tracks:"
-  find_playlist(playlist_choice_second)
-  puts "-----------------------------------------"
+    if !(1..Playlist.all.length).to_a.include?(playlist_choice_second)
+     user_story_three_read
+    else
+     puts "You have selected a great Taylist! Taytay would be proud with you. Below are the tracks:"
+     find_playlist(playlist_choice_second)
+     puts "-------------------------------------------"
+   end
 end
 
 #----------------------------------------------
@@ -796,9 +817,14 @@ def user_story_four_update
   iterate_over_ascii_images
   update_ask_for_input
   choice_of_playlist_for_ascii = store_choice_of_playlist_for_ascii
+  if !(1..Playlist.all.length).to_a.include?(choice_of_playlist_for_ascii)
+   user_story_four_update
+  else
+  puts "-----------------------------------------"
   update_playlist_withascii_image(choice_of_playlist_for_ascii)
   display_updated_ascii(choice_of_playlist_for_ascii)
   puts "-----------------------------------------"
+  end
 end
 
 #----------------------------------------------
@@ -806,11 +832,13 @@ end
 #----------------------------------------------
 
 def play_music_with_control_buttons
-  song_array = ['badblood.mp3', 'sampleaudio.mp3']
+  song_array = ['Bad Blood.mp3', 'Blank Space.mp3', 'You Belong with Me.mp3', 'Delicate.mp3', 'I Knew You Were Trouble.mp3', 'Love Story.mp3', 'Shake It Off.mp3']
   player = Audite.new
-  song_played = song_array.sample
+  index_song = Random.new.rand(0..song_array.length - 1)
+  song_played = song_array[index_song]
+  song_playedd = song_array[index_song].split('.').first
 
-  puts "The title of your song is #{song_played}"
+  puts "The title of your song is #{song_playedd}"
   player.events.on(:complete) do
     puts "That was a great song for you, Swiftie!"
   end
@@ -849,63 +877,22 @@ def read_from_selection_screen(selection_screen_choice)
   end
 end
 
-
+def entry_sequence
+ question = question_to_get_into_app($entry_hash)
+ answer_first = store_users_answer_first
+ match_on_users_answer_vs_question(answer_first, question)
+ if !$entry_hash.values.include?(answer_first)
+   entry_sequence
+ else
+   puts "-----------------------------------------"
+ end
+end
 
 
 def run
-  # greeting
-  ascii_taylors_face =
-  "
-  █░═█░══════════░░░░░████░═░█████████████
-  ██═█═───────────══░═████░███████████████
-  ████═══════════─░░██░███████████████████
-  ███░══════════─═─░░██═░█████████████████
-  ███════════════──═░░░█░░████████████████
-  ███═─═══════───═──═█░░█░═░██████████████
-  ███══════─═────────═█░═░░░░░████████████
-  ███═─═══─═─═─═──────═░░░═░░░░█░███░░░░══
-  ███══───═─────────────░██░════════░░░░██
-  ███═──═░░░═────────────═░██░░░░░░░░░░███
-  ███══─════░█░═──────────══████████████░═
-  ███═══─═─══████░───═─═───═██████████████
-  ██░─═─═░█████████░═══─══░███████████████
-  ██═──══████████████═───═░████░██████████
-  ██═───═███░═██═─█░█░────░═─█░═░██████░░░
-  ██░──═──═█░═░═─═───░───══────════█░░═══░
-  ███───═──═░░════───══──══────══════───═░
-  ███──═══─═════─────═───═══─────────────═
-  ██░───═───────────══────═══─────────═─══
-  █──═──══─────────═══────══─────────════░
-  █═─═──═══────────═══────═══───────═════░
-  ██─░═──════──────═══─────═══─────══════░
-  ██═██──════──────══──────══─────══════░░
-  ██─░█──═════─────═───────══──═─══════░░░
-  ██░░█═─══════────═░░═──═░░░───════════░░
-  █████░─═══════─═──███░░████────═══════░░
-  ██████──═══════───░███████═───═─══════░░
-  ██████──════════─────═░──────═─══════░░░
-  ██████░─═══════───────────────══════░═░░
-  ███████─═══════────░██─███░═─════════░░█
-  █░█████═─════════█████████████░═══════░█
-  ░═░█████═══════░█████████████──════░═░██
-  ══░═█████══════──████░█░══██░──═══░═░░██
-  ════██══██═░════─███░░██████─════░░░░███
-  █══███─═███░░═════█████████═─═════░░████
-  █═░░█──░███░█░════─██████░───════░██████
-  ░░░══─═█░██░██░─══──────────═─══░███████
-  ██─░─════██░███═─═───────────══░████████
-  █═─█═══─░░░░████░══─────────══██████████
-  ░══█════█░═░░█████░░═══════░░███████████
-  "
-  greet(ascii_taylors_face)
 
-  # Question for Swifties
-  #-----------------------------------------
-  question = question_to_get_into_app($entry_hash)
-  answer_first = store_users_answer_first
-  match_on_users_answer_vs_question(answer_first, question)
-  puts "-----------------------------------------"
-
+  greet
+  entry_sequence
   # User options
   selection_screen_user_story_options
   selection_screen_choice_i = store_selection_screen_choice
@@ -914,10 +901,5 @@ def run
   read_from_selection_screen(selection_screen_choice_i)
 
 end
-
-
-
-
-
 
 end
