@@ -557,7 +557,7 @@ end
 # ---------------------------------------------------
 
 def selection_screen_user_story_options
-  puts "1. Add a song to your Taylist!\n2. You are such a Swiftie that you want to delete playlisttracks related to her exes.\n3. Generate a list of all of the Taylists. \n4. Show your Tayswag by attaching the cutest Swiftimage to your Taylist.\nPlease, enter your selection as a number from 1 to 4 below:\n"
+  puts "1. Add a song to your Taylist!\n2. You are such a Swiftie that you want to delete playlisttracks related to her exes.\n3. Generate a list of all of the Taylists. \n4. Show your Tayswag by attaching the cutest Swiftimage to your Taylist. 📸\n5. Play a randomly shuffled song by Tay. You know that all of her songs are good! 🎶\nPlease, enter your selection as a number from 1 to 4 below:\n"
 end
 
 def store_users_answer_to_selection_question
@@ -802,6 +802,27 @@ def user_story_four_update
 end
 
 #----------------------------------------------
+# => User Story #5 PLAY MUSIC
+#----------------------------------------------
+
+def play_music_with_control_buttons
+  song_array = ['badblood.mp3', 'sampleaudio.mp3']
+  player = Audite.new
+  song_played = song_array.sample
+
+  puts "The title of your song is #{song_played}"
+  player.events.on(:complete) do
+    puts "That was a great song for you, Swiftie!"
+  end
+
+
+  player.load(song_played)
+  player.start_stream
+  player.forward(20)
+  player.thread.join
+end
+
+#----------------------------------------------
 # => Selection screen choice
 #----------------------------------------------
 
@@ -818,18 +839,17 @@ def read_from_selection_screen(selection_screen_choice)
     user_story_three_read
   elsif selection_screen_choice ==  4
     user_story_four_update
+  elsif selection_screen_choice == 5
+    play_music_with_control_buttons
   else
     puts "INVALID TAYLECTION!"
     selection_screen_user_story_options
     selection_screen_choice_i = store_selection_screen_choice
-    read_from_selection_screen(selection_screen_choice)
+    read_from_selection_screen(selection_screen_choice_i)
   end
 end
 
-#store asciis in an array
-#Gifs saved as ascii_playlistname
-#Playlist.find_by(name: "Taylistening").update(name: "Taylisteninggg")
-#do the above on the img
+
 
 
 def run
@@ -894,6 +914,8 @@ def run
   read_from_selection_screen(selection_screen_choice_i)
 
 end
+
+
 
 
 

@@ -1,4 +1,6 @@
 require 'bundler'
+require 'audite'
+
 Bundler.require
 
 ActiveRecord::Base.logger = nil
