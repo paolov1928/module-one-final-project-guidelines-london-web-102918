@@ -544,7 +544,7 @@ def store_users_answer_first
 end
 
 def match_on_users_answer_vs_question(answer, question_sampled)
-  return true
+  # return true
   if $entry_hash[question_sampled] == answer
     puts "Welcome to the Taykingdom, you have proved your Swiftiness!!"
   else
@@ -582,14 +582,7 @@ end
 # => User Story 1 - Create
 # ---------------------------------------------------
 
-#iterate over playlists and puts them
-#ask user for selected playlist
-#store This
-#iterate over tracks and puts them
-#ask user for selected track
-#store This
-#instantiate new instance of PlaylistTrack
-#show updated playlist
+
 
 #iterate over playlists and puts them
 def playlist_iteration
@@ -662,45 +655,9 @@ def find_playlist(answer)
 end
 
 # ---------------------------------------------------
-# => Looping + Input Validation
-# ---------------------------------------------------
-
-# Paolo adding in some code to work on later
-#
-#How to validate that each input is valid
-# array = (1..4).to_a
-# if array.include?(answer)
-#   "proceed to next method"
-# else
-#   "loop back to question"
-# end
-
-#Array is always dependent on Playlist.all.length or Track.all.length or [1 to 4]
-
-# array_of_playlist_options = (1..Playlist.all.length).to_a
-# array_of_track_options = (1..Track.all.length).to_a
-# array_of_selection_screen_options = (1..4).to_a
-
-#if array.include?(answer)
-#   "proceed to next method"
-# else
-#   "loop back to question"
-# end
-
-
-# ---------------------------------------------------
 # => User Story 2 - Delete
 # ---------------------------------------------------
 
-# #This is to do user journey 2
-
-# PlaylistTrack.delete_all(track_id: 'contains something about ex')
-#
-# User.where('age > 69').delete_all
-# #could you chain in a self in there?
-
-#Can you put booleans in the where lookup????!?!?
-#Can make the "Bad Blood" be an input for any song
 def destroy_input_intro
   puts "NEWS ALERT!!!! Taytay broke up... We need to delete all mention of he who shall not be named"
   puts "Please below select which track most relates to the ex"
@@ -757,6 +714,116 @@ end
 
 def display_updated_ascii(selected_playlist_for_ascii_image_insertion)
   puts "#{$taylor_swift_ascii_images_array[selected_playlist_for_ascii_image_insertion -1]}"
+end
+
+# ---------------------------------------------------
+ # => Validation Methods
+ # ---------------------------------------------------
+
+ def entry_question_validation(answer_first)
+   if !$entry_hash.values.include?(answer_first)
+       # loop back to the start (call entry_question)
+     end
+   end
+
+ def track_question_validation(track_choice)
+   track_options_array = (1..6).to_a
+   if !track_options_array.include?(track_choice)
+       # loop back to the start (call the start of whatever part we are in)
+     end
+   end
+
+ def playlist_question_validation(playlist_choice, loop_back)
+     playlist_options_array = (1..11).to_a
+     if !playlist_options_array.include?(playlist_choice)
+         loop_back# loop back to the start (call the start of whatever part we are in)
+       end
+     end
+
+
+#----------------------------------------------
+# => User Story Methods
+#----------------------------------------------
+
+#----------------------------------------------
+# => User Story #1 CREATE
+#----------------------------------------------
+
+def user_story_one_create
+  playlist_iteration
+  playlist_choice = store_playlist_choice
+  # playlist_question_validation(playlist_choice, user_story_one_create)
+  puts "-----------------------------------------"
+  track_iteration
+  track_choice = store_track_choice
+  new_playlisttrack = match_track_to_playlist(playlist_choice, track_choice)
+  show_playlist_tracks_for_user_choice(new_playlisttrack)
+  puts "-----------------------------------------"
+end
+
+#----------------------------------------------
+# => User Story #2 DELETE
+#----------------------------------------------
+
+def user_story_two_delete
+  destroy_input_intro
+  show_tracks_for_deletion
+  track_for_deletion = store_track_for_deletion
+  ex_track_for_deletion_id = find_track_id_for_ex(track_for_deletion)
+  delete_all_playlist_tracks_with_ex_mentioned(ex_track_for_deletion_id)
+  destroy_end_narrative
+  puts "-----------------------------------------"
+end
+
+#----------------------------------------------
+# => User Story #3 READ
+#----------------------------------------------
+
+def user_story_three_read
+  playlist_iteration_by_name
+  playlist_choice_second = store_playlist_choice_second
+  puts "You have selected a great Taylist! Taytay would be proud with you. Below are the tracks:"
+  find_playlist(playlist_choice_second)
+  puts "-----------------------------------------"
+end
+
+#----------------------------------------------
+# => User Story #4 UPDATE
+#----------------------------------------------
+
+def user_story_four_update
+  update_input_intro
+  iterate_over_ascii_images
+  update_ask_for_input
+  choice_of_playlist_for_ascii = store_choice_of_playlist_for_ascii
+  update_playlist_withascii_image(choice_of_playlist_for_ascii)
+  display_updated_ascii(choice_of_playlist_for_ascii)
+  puts "-----------------------------------------"
+end
+
+#----------------------------------------------
+# => Selection screen choice
+#----------------------------------------------
+
+def store_selection_screen_choice
+  gets.chomp.to_i
+end
+
+def read_from_selection_screen(selection_screen_choice)
+  if selection_screen_choice == 1
+    user_story_one_create
+  elsif selection_screen_choice == 2
+    user_story_two_delete
+  elsif selection_screen_choice == 3
+    user_story_three_read
+  elsif selection_screen_choice ==  4
+    user_story_four_update
+  else
+    puts "INVALID TAYLECTION!"
+    selection_screen_user_story_options
+    selection_screen_choice_i = store_selection_screen_choice
+    read_from_selection_screen(selection_screen_choice)
+  end
 end
 
 #store asciis in an array
@@ -821,50 +888,14 @@ def run
 
   # User options
   selection_screen_user_story_options
-  answer_second = store_users_answer_to_selection_question
-  checking_and_looping_on_selection(answer_second)
-  puts "-----------------------------------------"
+  selection_screen_choice_i = store_selection_screen_choice
 
-  #User Story 1 - Create
-  # playlist_iteration
-  # playlist_choice = store_playlist_choice
-  # puts "-----------------------------------------"
-  # track_iteration
-  # track_choice = store_track_choice
-  # new_playlisttrack = match_track_to_playlist(playlist_choice, track_choice)
-  #
-  # show_playlist_tracks_for_user_choice(new_playlisttrack)
-
-  puts "-----------------------------------------"
-
-  #User Story 2 - Update
-
-  # update_input_intro
-  # iterate_over_ascii_images
-  # update_ask_for_input
-  # choice_of_playlist_for_ascii = store_choice_of_playlist_for_ascii
-  # update_playlist_withascii_image(choice_of_playlist_for_ascii)
-  # display_updated_ascii(choice_of_playlist_for_ascii)
-
-puts "-----------------------------------------"
-
-  #User Story 3 - Read
-  # playlist_iteration_by_name
-  # playlist_choice_second = store_playlist_choice_second
-  # find_playlist(playlist_choice_second)
-
-  puts "-----------------------------------------"
-
-  #User Story 4 - Delete
-
-  destroy_input_intro
-  show_tracks_for_deletion
-  track_for_deletion = store_track_for_deletion
-  ex_track_for_deletion_id = find_track_id_for_ex(track_for_deletion)
-  delete_all_playlist_tracks_with_ex_mentioned(ex_track_for_deletion_id)
-  destroy_end_narrative
-  puts "-----------------------------------------"
+  # Read from selection screen
+  read_from_selection_screen(selection_screen_choice_i)
 
 end
+
+
+
 
 end
