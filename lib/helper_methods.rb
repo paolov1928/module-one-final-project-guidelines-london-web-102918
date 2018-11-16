@@ -552,6 +552,11 @@ def match_on_users_answer_vs_question(answer, question_sampled)
   end
 end
 
+# def entry_question_validation(answer_first)
+#   if !$entry_hash.values.include?(answer_first)
+      #loop back to the start (call entry_question)
+  #   end
+  # end
 # ---------------------------------------------------
 # => Selection Screen
 # ---------------------------------------------------
@@ -816,21 +821,44 @@ def run
   #-----------------------------------------
   question = question_to_get_into_app($entry_hash)
   answer_first = store_users_answer_first
+
+  # def entry_question_validation(answer_first)
+  #   if !$entry_hash.values.include?(answer_first)
+        #loop back to the start (call entry_question)
+    #   end
+    # end
+
   match_on_users_answer_vs_question(answer_first, question)
   puts "-----------------------------------------"
 
   # User options
-  selection_screen_user_story_options
-  answer_second = store_users_answer_to_selection_question
-  checking_and_looping_on_selection(answer_second)
+  # selection_screen_user_story_options
+  # answer_second = store_users_answer_to_selection_question
+  # checking_and_looping_on_selection(answer_second)
   puts "-----------------------------------------"
 
   #User Story 1 - Create
   # playlist_iteration
   # playlist_choice = store_playlist_choice
+
+  #def playlist_question_validation(playlist_choice)
+    #playlist_options_array = (1..11).to_a
+  #   if !playlist_options_array.include?(playlist_choice)
+        #loop back to the start (call entry_question)
+    #   end
+    # end
+
   # puts "-----------------------------------------"
   # track_iteration
   # track_choice = store_track_choice
+
+  #def track_question_validation(track_choice)
+    #track_options_array = (1..6).to_a
+  #   if !track_options_array.include?(track_choice)
+        #loop back to the start (call entry_question)
+    #   end
+    # end
+
   # new_playlisttrack = match_track_to_playlist(playlist_choice, track_choice)
   #
   # show_playlist_tracks_for_user_choice(new_playlisttrack)
@@ -843,6 +871,14 @@ def run
   # iterate_over_ascii_images
   # update_ask_for_input
   # choice_of_playlist_for_ascii = store_choice_of_playlist_for_ascii
+
+  #def playlist_question_validation(playlist_choice)
+    #playlist_options_array = (1..11).to_a
+  #   if !playlist_options_array.include?(playlist_choice)
+        #loop back to the start (call entry_question)
+    #   end
+    # end
+
   # update_playlist_withascii_image(choice_of_playlist_for_ascii)
   # display_updated_ascii(choice_of_playlist_for_ascii)
 
@@ -851,6 +887,14 @@ puts "-----------------------------------------"
   #User Story 3 - Read
   # playlist_iteration_by_name
   # playlist_choice_second = store_playlist_choice_second
+
+  #def playlist_question_validation(playlist_choice)
+    #playlist_options_array = (1..11).to_a
+  #   if !playlist_options_array.include?(playlist_choice)
+        #loop back to the start (call entry_question)
+    #   end
+    # end
+
   # find_playlist(playlist_choice_second)
 
   puts "-----------------------------------------"
@@ -860,11 +904,53 @@ puts "-----------------------------------------"
   destroy_input_intro
   show_tracks_for_deletion
   track_for_deletion = store_track_for_deletion
+
+  #def track_question_validation(track_choice)
+    #track_options_array = (1..6).to_a
+  #   if !track_options_array.include?(track_choice)
+        #loop back to the start (call entry_question)
+    #   end
+    # end
+
+
   ex_track_for_deletion_id = find_track_id_for_ex(track_for_deletion)
   delete_all_playlist_tracks_with_ex_mentioned(ex_track_for_deletion_id)
   destroy_end_narrative
-  puts "-----------------------------------------"
+  # puts "-----------------------------------------"
 
 end
+
+
+
+
+  # ---------------------------------------------------
+  # => Validation Methods
+  # ---------------------------------------------------
+
+  # def entry_question_validation(answer_first)
+  #   if !$entry_hash.values.include?(answer_first)
+        #loop back to the start (call entry_question)
+    #   end
+    # end
+
+  #def track_question_validation(track_choice)
+    #track_options_array = (1..6).to_a
+  #   if !track_options_array.include?(track_choice)
+        #loop back to the start (call the start of whatever part we are in)
+    #   end
+    # end
+
+  #def playlist_question_validation(playlist_choice)
+      #playlist_options_array = (1..11).to_a
+    #   if !playlist_options_array.include?(playlist_choice)
+          #loop back to the start (call the start of whatever part we are in)
+      #   end
+      # end
+
+      # ---------------------------------------------------
+      # => Looping Methods
+      # ---------------------------------------------------
+
+#just call the start of the method again
 
 end
