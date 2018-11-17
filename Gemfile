@@ -20,6 +20,7 @@ gem 'sqlite3'
 gem 'thin'
 gem 'shotgun'
 gem 'pry'
+gem 'rainbow'
 
 group :test do
   gem 'rspec'

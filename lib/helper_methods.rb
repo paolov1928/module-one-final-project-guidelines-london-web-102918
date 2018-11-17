@@ -4,7 +4,7 @@ class CommandLineInterface
 $entry_hash = {birthdate: "December 13, 1989", birthplace: "Reading, Pennsylvania", net_worth: "$320 million", age_when_she_moved_to_nashville: "14", first_album_called: "Taylor Swift", second_album_called: "Fearless", third_album_called: "Speak Now", latest_album_called: "Reputation"}
 
 #Taylor Swift ASCII Images
-$ascii_taylurking = "
+$ascii_taylurking = Rainbow("
 
 ooooossyhmNNNNNNNNNNNNNNNNmdmNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNddddmNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 ooooosyyhmNNNNNNNNNNNNNNMMNNNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNmdysooooo+/---/oydNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
@@ -49,9 +49,9 @@ ooooosyyhdmNNNNNNNNNmmmNNNNNMMMMMMMMMMMMMMMMMMMMMMNNNNsssoosoooosooo+oooooo+oyyo
 ++oosssyyhhhddddddmmmmmmmmmmmmmNNNNNh:---yddhmNdmmNNNNNNMMNNNNNNNMNNNNNNNmNNNmNmh-hhdNMMNMMMMNyMMMMMMMNNMMMMNmNNNMMMMMMMNyymmmhyyyosdNNNNNMMMMMMMMMMMM
 ++oosssyyhhddddddddddmmmmmmmmmmmNmNNs:---:NmdNNNmNNNNMNNNMNNNNNNNNNNNNMMMMMNNmhhmNNNNMMNMMMMMmyMMMMMMMMNMMMMNNMMMMMMMMMmsoshhyshddsohMMMMMMMMMMMMMMMMM
 
-"
+").color("047708")
 
-$ascii_taylooking = "
+$ascii_taylooking = Rainbow("
 
 ooooooodddddxxxxxo:'..........',;,,;;;:::;,,,,;:looddxddxxxolcodxxxxkkkkxdl:;:::::::::::::::::;;;;;;
 ooodddddddddxxxxxl,'.........'',;;;;;;::cc;;,;;:clllooxdddxxdooxxxkkkkkkkxoc::::::::::::::::::::;;;;
@@ -97,8 +97,9 @@ dddoooooooooddddoc'....';::;,',:cccccc:,...,coxxkkkx:.'cdkxddxxkkxddolc::::;::cc
 . .:dxOOOOOOOOOOOkko'.....':oxO00KKKKKXXXXXXXXXXXKKKKKKKKKKKKKKKKKKKKKKK0Odc.     .cddxkOOO00KKKKK0x
 
 "
+).color("047708")
 
-$ascii_tayliking = "
+$ascii_tayliking = Rainbow("
 
 ..,xKk,......',,;,;;;;;;:ok00Odc;,,,,
 ,kXKl........,,,,;;::::ldO00Oxo:;;;;
@@ -141,9 +142,9 @@ o;.                                 .col:;;:dxdc,..';lkK0000000KK00Okkxxdc;;ldxk
 .ckkxc,..                 ..:dkxdoodddl,.                                      ...
 .''.                 .ckkxo,.                     .cdlllcccc,.                  ..                    ..
 
-"
+").color("047708")
 
-$ascii_taylosing = "
+$ascii_taylosing = Rainbow("
 
 .............. .....';;;';OWWWMMMMMMMWXNWWWWK0XWWWN0d;..'.....,lkOko;......cKWWWNKc.  .
 .......... ......:dkOkdoOXWWMMMMMMMWNWWWWNXKNWWWNkc;,..'',,,,;::;,'......,oOXNXx,.                        .
@@ -188,9 +189,9 @@ ooooolllc::;,'.....  ......'',,;;:cclolclllddddoooooloolloooloollloolllccc::;;,,
 ................',;:;;;;:clllllooooool:clclolcooc:clc;:llc;;cc:;:cl:;:c:;::;;,,,'...',,;,,',;:;;,,,'''''...
 ..............',;::;,;:clloloooooodoolccdxdkxxkkxdxxo:ldoolllc:;ccc,;::;,:;,,'''....',,;;,'';:;;;,,,,'''''..
 
-"
+").color("047708")
 
-$ascii_taylistening = "
+$ascii_taylistening = Rainbow("
 
 .....',,;;,':cc:;.....   ........':,.,cccccccc:::::::::::::;;;;;,',;;;,,,,,,,,,,,,''''''''''''''''''''''''................................
 ............',,,'..'. .:l;':oxd;c0OOx::cccccccc:::::::::::;;;;;;,',:;;,,,,,,,,,,,,,,,'''''''''''''''''''''''..............................
@@ -238,9 +239,9 @@ ccccccccccccc:::::;;;;,,'....              ..''..',,'...  ...'',;:loodxkO0kdc;;d
   .'.   .;:.                                  .....,oxxo;.'''',,,;:ok00Oxddddooooo:;clcc:;:;'',,.   .......... .........''..'.''.''.''.','.,,'',,'',,',;ldl'
   .c;.  .,:,.                                 ......:oxo;',,',,,,;cdOK0xxkkkxxxxxl;',;:c:::,'','..  .......... .........'..'..,..''''..,,'','',,,',,',;;ldc.
 
-"
+").color("047708")
 
-$ascii_taylording = "
+$ascii_taylording = Rainbow("
 
 .....                    ...........      .......                               ...;cllcc:;'..  ......'''...
 .....                    ...........    .........                               ...';c:;,'...  .....'''....
@@ -287,9 +288,9 @@ $ascii_taylording = "
  .,'... . ...  .       ...            ..........''''...            .........',;;,,,;:;,,,'......
 .,'...      .            .           .............'....            ......'...,;;,',;:;,','......
 
-"
+").color("047708")
 
-$ascii_tayloving = "
+$ascii_tayloving = Rainbow("
 
 ;;:::::::::::::cccc::cccc:::;;;;;;;;;;;;;:cccc:::;
 ;;::::::::::::ccccc:ccllloool:coollc:;;;;;:::cc:::
@@ -337,9 +338,9 @@ co::coxxxxxl'';;cc,;odoooodl'.,'...'',:oddoooc;,''
 ..',,;:;,,,,'',;;;,,cl..,,,,;c:,.    .':;.....'...
 ...,,;;,',,''',;:;,,:o'.;;;'';;,..   .';,.........
 
-"
+").color("047708")
 
-$ascii_taylucky = "
+$ascii_taylucky = Rainbow("
 
 ............................................''''''','',,,,,,,,,;;:cclc:;''..';c:......................................',
 .........................................'''''''',',',,,,,,;;;;,;;:cclc:,''..';:,... .................................',
@@ -381,9 +382,9 @@ $ascii_taylucky = "
 ....      ...............................'''''''..',,,,,,,,,,,,,'''''''''''....................................',.......
 ...      .................................''''''....,,,,,,,,,,,,'''''''''''.............................................
 
-"
+").color("047708")
 
-$ascii_tayleading = "
+$ascii_tayleading = Rainbow("
 
 ................'''''''',,,,,,:looooodkO0kooxOOOOOOxl,.......................'',;;:
 ...................''''',;clokO0OOOO00koldkOOO000kdc:,'........................',
@@ -424,9 +425,9 @@ ol;';;,.',,...............',;:::cldddooddddl'.  ..';oxxxxdolc:;,,'........';:cox
 odc,';;',ldl;,'............,;:;:clodooooodddl:,'..  .;oxxxxdolc:,,,;:ccoddxkkOOOOkOOkkOkkddkxl'.....
 ldo:',;'.:xxoo:'...........',;;;:looolloodddddddo;..  .cxkkkxdollxkkOOOO0kxkkO0kxkkxdxkxdxxddl'.....
 
-"
+").color("047708")
 
-$ascii_taylate = "
+$ascii_taylate = Rainbow("
 
 KKKKXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXNXXXXXXXNNXXNNXXNNNNNNXXNNNXNNNNNNNXXNNXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 KKXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXNNXNNXXXXXXXXKKKKXXXXNNNNXXNNNNNNNNNNNNXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -470,9 +471,9 @@ NNNNNNNNNNNNNNNNN0;       ..';::;,:lolll:'..';;;:::::cclllllllloooodddol,.      
 NNNNNNNNNNNNNNNNN0,      ......',:lollc;.  ..,,;::cclllllllllllooodddddoc.                    ;dxxkO0000000KKK
 NNNNNNNNNNNNNNNNW0;     ...  ..':ooocc;.          ...;cccccccllooodddddol,                    ;doodxkkkkkOOOOO
 
-"
+").color("047708")
 
-$ascii_taylationship = "
+$ascii_taylationship = Rainbow("
 
 'ONXNWWWNXNNNNNXNNWWWWWWW0'                 ...',;;;,,,,,'''..
 .xXXNWWWNNNNXNNNWWNNWWWWNO.                ...'''''''',;;:lc;'''..
@@ -516,6 +517,7 @@ lllllc'  .. .....      ..;OWMMMMMMN0xxkKNWWWNXx'..      ..     .;oxO00O00KKKKKK0
 ..... ...........'.....'''''.'xWWWWx',,'',OMWWWWx.... ....        .dXKXXXXXXXXXXXXXKKKKKKKKKKKXXXNNNNNNNXXXXXOkO0KKKKK0O
 
 "
+).color("047708")
 
 @@ascii_taylors_face =
 "
@@ -561,7 +563,8 @@ lllllc'  .. .....      ..;OWMMMMMMN0xxkKNWWWNXx'..      ..     .;oxO00O00KKKKKK0
 ░══█════█░═░░█████░░═══════░░███████████
 "
 
-$taylor_swift_ascii_images_array = [$ascii_taylurking, $ascii_taylooking, $ascii_tayliking, $ascii_taylosing, $ascii_taylistening, $ascii_taylording, $scii_tayloving, $ascii_taylucky, $ascii_tayleading, $ascii_taylate, $ascii_taylationship]
+
+$taylor_swift_ascii_images_array = [$ascii_taylurking, $ascii_taylooking, $ascii_tayliking, $ascii_taylosing, $ascii_taylistening, $ascii_taylording, $ascii_tayloving, $ascii_taylucky, $ascii_tayleading, $ascii_taylate, $ascii_taylationship]
 
 
 
@@ -573,13 +576,13 @@ $taylor_swift_ascii_images_array = [$ascii_taylurking, $ascii_taylooking, $ascii
 
   puts @@ascii_taylors_face.split('').map{|c| c == "\n" ? c : c + c}.join('')
 
-  puts "Hello Swiftie! Before we let you into the Taykingdom, you have to prove your Swiftieness by answering the question below:\n"
+  puts Rainbow("Hello Swiftie! Before we let you into the Taykingdom, you have to prove your Swiftieness by answering the question below:\n").color("ed15a5")
   end
 
 def question_to_get_into_app(entry_hash)
   question_sampled = entry_hash.keys.sample
   question_asked = question_sampled.to_s.gsub(/_/," ")
-  puts "What is Taylor Swift's #{question_asked}?"
+  puts Rainbow("What is Taylor Swift's #{question_asked}?").color("ed15a5")
   question_sampled
 end
 
@@ -590,9 +593,9 @@ end
 def match_on_users_answer_vs_question(answer, question_sampled)
   # return true
   if $entry_hash[question_sampled] == answer
-    puts "Welcome to the Taykingdom, you have proved your Swiftiness!!"
+    puts Rainbow("Welcome to the Taykingdom, you have proved your Swiftiness!!").color("ed15a5")
   else
-    puts "Work on your intaylorgence and please try again later"
+    puts Rainbow("Work on your intaylorgence and please try again later").color("ed15a5")
   end
 end
 
@@ -601,7 +604,7 @@ end
 # ---------------------------------------------------
 
 def selection_screen_user_story_options
-  puts "1. Add a song to your Taylist!\n2. You are such a Swiftie that you want to delete playlisttracks related to Taylor's ex.\n3. View the tracks in your favourite Taylist. \n4. Show your Tayswag by attaching the cutest Swiftimage to your Taylist. 📸🤳🏻📷\n5. Play a randomly shuffled song by Tay. You know that all of her songs are good! 🎶🎹🎷\n\nPlease, enter your selection as a number from 1 to 5 below:\n"
+  puts Rainbow("1. Add a song to your Taylist!\n2. You are such a Swiftie that you want to delete playlisttracks related to Taylor's ex.\n3. View the tracks in your favourite Taylist. \n4. Show your Tayswag by attaching the cutest Swiftimage to your Taylist. 📸🤳🏻📷\n5. Play a randomly shuffled song by Tay. You know that all of her songs are good! 🎶🎹🎷\n\nPlease, enter your selection as a number from 1 to 5 below:\n").color("ed15a5")
 end
 
 def store_users_answer_to_selection_question
@@ -618,7 +621,7 @@ end
 
 #iterate over playlists and puts them
 def playlist_iteration
-  puts "Please, select the number of the Taylist you want to add a track to: "
+  puts Rainbow("Please, select the number of the Taylist you want to add a track to: ").color("ed15a5")
   i = 0
   Playlist.all.map do |p|
     puts "#{i + 1}. #{p.name}\n"
@@ -633,7 +636,7 @@ def store_playlist_choice
 end
 
 def track_iteration
-  puts "Please, select the number of the track you would like to add to the playlist: "
+  puts Rainbow("Please, select the number of the track you would like to add to the playlist: ").color("ed15a5")
   i = 0
   Track.all.map do |t|
     puts "#{i + 1}. #{t.title}\n"
@@ -654,7 +657,7 @@ def match_track_to_playlist(playlist_choice, track_choice)
 end
 
 def show_playlist_tracks_for_user_choice(new_playlisttrack)
-puts "Wow you added a great Swiftrack to your favourite Taylist\n"
+puts Rainbow("Wow you added a great Swiftrack to your favourite Taylist\n").color("ed15a5")
 new_playlisttrack.playlist.tracks.map.with_index{|t,i|puts "#{i+1}.#{t.title}"}
 end
 
@@ -663,7 +666,7 @@ end
 # ---------------------------------------------------
 
 def playlist_iteration_by_name
- puts "Please, select the name of the Taylist you want to view: "
+ puts Rainbow("Please, select the name of the Taylist you want to view: ").color("ed15a5")
  i = 0
  Playlist.all.map do |p|
    puts "#{i + 1}. #{p.name}\n"
@@ -691,8 +694,8 @@ end
 # ---------------------------------------------------
 
 def destroy_input_intro
-  puts "NEWS ALERT!!!! Taytay broke up... We need to delete all mention of he who shall not be named"
-  puts "Please below select which track most relates to the ex"
+  puts Rainbow("NEWS ALERT!!!! Taytay broke up... We need to delete all mention of he who shall not be named").color("ed15a5")
+  puts Rainbow("Please below select which track most relates to the ex").color("ed15a5")
 end
 
 def show_tracks_for_deletion
@@ -714,7 +717,7 @@ end
 
 
 def destroy_end_narrative
-  puts "Dont worry you will never see a playlist with one of those tracks ever again!!!"
+  puts Rainbow("Dont worry you will never see a playlist with one of those tracks ever again!!!").color("ed15a5")
 end
 
 
@@ -723,7 +726,7 @@ end
 # ---------------------------------------------------
 
 def update_input_intro
-  puts "We heard you wanted to update your favourite Taylist with the cutest Taylimage"
+  puts Rainbow("We heard you wanted to update your favourite Taylist with the cutest Taylimage").color("ed15a5")
 end
 
 def iterate_over_ascii_images
@@ -731,7 +734,7 @@ def iterate_over_ascii_images
 end
 
 def update_ask_for_input
-  puts "Please choose a number for your favourite Taylimage"
+  puts Rainbow("Please choose a number for your favourite Taylimage").color("ed15a5")
 end
 
 def store_choice_of_playlist_for_ascii
@@ -757,12 +760,26 @@ end
 # => User Story #1 CREATE
 #----------------------------------------------
 
+# def second_half_of_user_story_one_create
+#  puts "-------------------------------------------"
+#  track_iteration
+#  track_choice = store_track_choice
+#    if !(1..Track.all.length).to_a.include?(track_for_deletion)
+#      second_half_of_user_story_one_create
+#    else
+#      new_playlisttrack = match_track_to_playlist(playlist_choice, track_choice)
+#      show_playlist_tracks_for_user_choice(new_playlisttrack)
+#      puts "-----------------------------------------"
+#    end
+# end
+
 def user_story_one_create
   playlist_iteration
   playlist_choice = store_playlist_choice
     if !(1..Playlist.all.length).to_a.include?(playlist_choice)
       user_story_one_create
     else
+      #second_half_of_user_story_one_create
       puts "-------------------------------------------"
       track_iteration
       track_choice = store_track_choice
@@ -802,7 +819,7 @@ def user_story_three_read
     if !(1..Playlist.all.length).to_a.include?(playlist_choice_second)
      user_story_three_read
     else
-     puts "You have selected a great Taylist! Taytay would be proud with you. Below are the tracks:"
+     puts Rainbow("You have selected a great Taylist! Taytay would be proud with you. Below are the tracks:").color("ed15a5")
      find_playlist(playlist_choice_second)
      puts "-------------------------------------------"
    end
@@ -870,7 +887,7 @@ def read_from_selection_screen(selection_screen_choice)
   elsif selection_screen_choice == 5
     play_music_with_control_buttons
   else
-    puts "INVALID TAYLECTION!"
+    puts Rainbow("INVALID TAYLECTION!").color("ed15a5")
     selection_screen_user_story_options
     selection_screen_choice_i = store_selection_screen_choice
     read_from_selection_screen(selection_screen_choice_i)

@@ -1,5 +1,6 @@
 require 'bundler'
 require 'audite'
+require 'rainbow'
 
 Bundler.require
 

@@ -10,6 +10,21 @@ babe = Track.create(:title=>"Babe")
 back_to_december = Track.create(:title=>"Back to December")
 bad_blood = Track.create(:title=>"Bad Blood")
 
+shake = Track.create(:title=>"Shake It Off")
+yoube = Track.create(:title=>"You Belong With Me")
+track1 = Track.create(:title=>"Blank Space")
+track12 = Track.create(:title=>"Love Story")
+track13 = Track.create(:title=>"I Knew You Were Trouble.")
+track14 = Track.create(:title=>"We Are Never Ever Getting Back Together")
+track15 =Track.create(:title=>"I Dont Wanna Live Forever")
+track16 =Track.create(:title=>"Wildest Dreams")
+track17 =Track.create(:title=>"Style")
+track19 =Track.create(:title=>"Look What You Made Me Do")
+track1123 =Track.create(:title=>"Mine")
+track112313 =Track.create(:title=>"Teardrops on My Guitar")
+
+track1123132 = Track.create(:title=>"Picture to Burn")
+
 #Playlists
 playlist1 = Playlist.create(:name=>"Taylurking")
 playlist2 = Playlist.create(:name=>"Taylooking")
